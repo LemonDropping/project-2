@@ -11,9 +11,7 @@ Developed By:
 Cole Roberts
 Eric Reyes
 Dino Arslanovic
-Kamel Tabeche
-
-Repository: https://github.com/LemonDropping/project-2/tree/main`);
+Kamel Tabeche`);
 
 for (var i = 0; i < localStorage.length; i++) {
     var key = localStorage.key(i);
