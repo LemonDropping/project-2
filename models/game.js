@@ -5,7 +5,6 @@ class Game extends Model {}
 
 Game.init(
     {
-      // Manually define the primary key
       game_id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -33,7 +32,6 @@ Game.init(
     {
       sequelize,
       timestamps: false,
-      // Prevent sequelize from renaming the table
       freezeTableName: true,
       underscored: true,
       modelName: 'game'
