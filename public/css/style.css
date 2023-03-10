@@ -1,0 +1,64 @@
+:root {
+    --primary: #1AF6CB;
+    --secondary: #86938f;
+
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    flex-direction: row;
+    justify-content: end;
+}
+
+nav {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+	
+nav li {
+	display: inline;
+    padding: 30px;
+}
+
+nav a {
+	font-family: Cambria, serif;
+	font-size: 24px;
+	color: var(--primary);
+}
+
+nav a:hover {
+	font-family: Cambria, serif;
+	font-size: 24px;
+	color: #000;
+    box-shadow: #86938f;
+    background-color: slateblue;
+}
+
+.search-button {
+    background-color: var(--secondary);
+    color: greenyellow;
+    font-weight: bold;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.search-button:hover {
+    color: slateblue;
+    background-color: lightsteelblue;
+}
+
+.user-input-search {
+    max-width: 100%;
+    width: 100%;
+    flex-direction: row;
+    justify-content: end;
+}
