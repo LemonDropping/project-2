@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/css/api.css">
     <title>Video Game Search</title>
     <link rel="stylesheet" href="/public/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
@@ -11,8 +12,13 @@
 <body>
     <header class="head container">
         <nav>
-            <li><a href="">Home</a></li>
-            <li><a href="">Login</a></li>
+
+            <h1>Game Search Engine </h1>
+            <a href="./index.html">Home</a>
+            <a href="./public/htmls/DLC.html">DLCs</a>
+            <a href="./public/htmls/Platforms.html">Platforms</a>
+            <a href="./public/htmls/NewGames.html">New Games</a>
+            <a href="">Login</a>
         </nav>
     </header>
 
@@ -22,13 +28,16 @@
         <button class="search-button" type="button">Search</button>
     </section>
 
-    <!--Results show here-->
-    <section>
-        <div class="result-list">
+    <main>
 
-        </div>
-    </section>
+        <h2>Must Have Games</h2>
 
+        <section id="bestGames">
+
+        </section>
+    </main>
+<script type="module" src="./public/js/main.js"></script>
 
 </body>
+
 </html>
