@@ -1,4 +1,4 @@
-import {getGameInfo, getGames, getPlatforms, getDLCList} from './api.js';
+import {getGameInfo, getGames, getPlatforms} from './api.js';
 
 const showingGames = document.getElementById('bestGames');
 const searchGame = document.getElementsByClassName('search-button');
@@ -70,8 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         getGameInfo();
     } else if(window.location.pathname.includes('Platforms.html')) {
         getPlatforms();
-    } else if(window.location.pathname.includes('DLC.html')) {
-        getDLCList();
+        
     } else if(window.location.pathname.includes('NewGames.html')) {
         getGames();
     }
