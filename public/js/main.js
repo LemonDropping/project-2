@@ -76,5 +76,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-document.addEventListener('click', topNewGame);
+document.addEventListener('click', );
 

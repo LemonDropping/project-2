@@ -1,4 +1,4 @@
-import {expansionsList} from "./DLC.js";
+
 import {topNewGame} from './main.js';
 import {platformList} from './platform.js';
 
