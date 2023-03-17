@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Game = require('../../models/game');
+const Game = require('../../models/user');
 
 function serveIndex(req, res) {
     res.sendFile('index.html', { root: __dirname });

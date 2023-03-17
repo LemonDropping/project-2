@@ -1,13 +1,13 @@
-const router = require('express').Router();
-const { User } = require('../models');
-const { Game } = require('../models');
+// const router = require('express').Router();
+// const { User } = require('../models');
+// const { Game } = require('../models');
 
-router.get('/', async (req, res) => {
-    const bestGames = await Game.findAll({ order: [['popular','DESC']] });
-    res.render('home', { games: bestGames });
-});
+// router.get('/', async (req, res) => {
+//     const bestGames = await Game.findAll({ order: [['popular','DESC']] });
+//     res.render('home', { games: bestGames });
+// });
 
-module.exports = router;
+// module.exports = router;
 
 // router.get('/', withAuth, async (req, res) => {
 //     try {
