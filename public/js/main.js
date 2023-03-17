@@ -1,7 +1,7 @@
-import {getGameInfo, getGames, getPlatforms} from './api.js';
+import {getGameInfo, getGames, getPlatforms, getUserGames} from './api.js';
 
 const showingGames = document.getElementById('bestGames');
-const searchGame = document.getElementsByClassName('search-button');
+const searchBtn = document.querySelector('.search-button');
 
 export function topNewGame(response) {
     for (let i = 0; i < response.results.length; i++) {
@@ -65,16 +65,89 @@ export function topNewGame(response) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+export const gameSearch = async () => {
+
+    const searchGame = await getUserGames();
+    showingGames.innerHTML = "";
+        searchGame.results.map((game) => {
+            // Creating the game's card
+            const gameCard = document.createElement('div');
+            gameCard.classList.add('gameCard');
+            showingGames.append(gameCard);
+    
+            // Image of Game
+            const gameImage = document.createElement('img');
+            gameImage.classList.add('gameImage');
+            gameImage.src = game.background_image;
+            gameCard.append(gameImage);
+    
+            //  title Meta
+            const titleMeta = document.createElement('h2');
+            titleMeta.classList.add('titleMeta');
+            gameCard.append(titleMeta);
+    
+            // Title
+            const gameTitle = document.createElement('h2');
+            gameTitle.classList.add('gameTitle');
+            titleMeta.append(gameTitle);
+            gameTitle.textContent = game.name;
+    
+            // Metacritic
+            const gameMetacritic = document.createElement('div');
+            gameMetacritic.classList.add('gameMetacritic');
+            if (game.metacritic === null) {
+                gameMetacritic.classList.add("hide");
+            } else {
+                gameMetacritic.innerHTML = game.metacritic;
+            }
+    
+            titleMeta.append(gameMetacritic);
+    
+            // Release Date
+            const gameDate = document.createElement("p");
+            gameDate.classList.add("gameDate");
+            gameDate.innerHTML = game.released;
+            gameCard.append(gameDate);
+    
+            // Genres
+            const gameGenres = document.createElement("p");
+            gameGenres.classList.add("gameGenres");
+            gameGenres.innerHTML = game.genres[0].name;
+            gameCard.append(gameGenres);  
+            
+            // Screenshots
+            const screenTxt = document.createElement("p");
+            screenTxt.classList.add("screenTxt");
+            screenTxt.textContent = "Screenshots:";
+            const zoneImg = document.createElement("div");
+            zoneImg.classList.add("zoneImg");
+            const gameScreenshots = document.createElement("img");
+            gameScreenshots.classList.add("gameScreenshots");
+            gameScreenshots.setAttribute("src", game.short_screenshots[1].image);
+            gameCard.append(screenTxt);
+            gameCard.append(zoneImg);
+            zoneImg.append(gameScreenshots);  
+     }
+  ); 
+}
+
+
+
+    document.addEventListener('DOMContentLoaded', () => {
     if(window.location.pathname.includes('index.html')) {
         getGameInfo();
     } else if(window.location.pathname.includes('Platforms.html')) {
-        getPlatforms();
-        
+        getPlatforms(); 
+
     } else if(window.location.pathname.includes('NewGames.html')) {
         getGames();
+    } else if( window.location.pathname.includes('Search.html')) {
+        getUserGames();
     }
 });
 
-document.addEventListener('click', );
+searchBtn.addEventListener('submit', function(e) {
+    e.preventDefault();
+    gameSearch();
+});
 

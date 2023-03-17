@@ -1,11 +1,11 @@
 
 import {topNewGame} from './main.js';
 import {platformList} from './platform.js';
-
+import {gameSearch} from './main.js';
 let dateObj = new Date();
 let year = dateObj.getUTCFullYear();
 const apiKey = "9c0ac971fbe045f09b649d4eb26292be";
-
+var userInput = "";
 
 export async function getGameInfo() {
     try {
@@ -41,13 +41,14 @@ export async function getPlatforms() {
     };
 };
 
-export async function getDLCList() {
+export async function getUserGames() {
     try {
-        const response = await fetch(`https://api.rawg.io/api/games/4200/additions?key=${apiKey}`);
+        userInput = $('.user-input-search').val();
+        const response = await fetch(`https://api.rawg.io/api/games?search=${userInput}&key=${apiKey}`);
         const resParse = await response.json();
-        expansionsList(resParse);
+        gameSearch(resParse);
         return resParse;
     } catch (err) {
         throw new Error(err);
     };
-}
+};
