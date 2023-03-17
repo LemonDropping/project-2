@@ -1,13 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const Game = require('../../models/user');
-
-function serveIndex(req, res) {
-    res.sendFile('index.html', { root: __dirname });
-}
+const login = require('../../models/user');
 
 router.get('/games', async (req, res) => {
-    const games = await Game.findAll();
+    const games = await login.findAll();
     res.json(games);
 });
 
