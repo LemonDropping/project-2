@@ -1,6 +1,7 @@
 # Project-2
 
-## Descriptions
+## Description
+The video game search engine is 
 
 ## How To Use
 
