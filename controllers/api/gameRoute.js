@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const { Game, Comment, Review } = require('../../models/game');
+const ifLoggedIn = require('../../utils/auth')
 
-router.get('/games/:id', async (req, res) => {
+router.get('/games/:id', ifLoggedIn, async (req, res) => {
     try {
         const idGame = req.params.id;
         const game = await Game.findByPk(idGame, {
