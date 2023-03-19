@@ -4,7 +4,7 @@ import {platformList} from './platform.js';
 import {gameSearch} from './main.js';
 let dateObj = new Date();
 let year = dateObj.getUTCFullYear();
-const apiKey = "9c0ac971fbe045f09b649d4eb26292be";
+const apiKey = "550b3b41e70a440abdf5cad43e2270b1";
 var userInput = "";
 
 export async function getGameInfo() {

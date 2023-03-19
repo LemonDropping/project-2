@@ -7,29 +7,29 @@ Game.init(
     {
       id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
         primaryKey: true,
         autoIncrement: true
       },
       name: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       released: {
-        type: DataTypes.STRING,
-        allowNull: false,
+        type: DataTypes.INTEGER,
+        allowNull: true,
       },
       genre: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
+        type: DataTypes.STRING,
+        allowNull: true,
       },
       platforms: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
+        type: DataTypes.STRING,
+        allowNull: true,
       },
       rating: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
       }
     },
     {

@@ -14,12 +14,7 @@ Game.hasMany(Comment, {
     foreignKey: 'game_id',
 });
 
-Comment.belongsToMany(Game, {
-    through: {
-        model: Game,
-        unique: false,
-    },
-    as: 'game_comments'
-});
+
+
 
 module.exports = {User, Comment, Game }

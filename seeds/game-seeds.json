@@ -1,5 +1,9 @@
 [
     {
-        "name":""
+        "name":"Witcher 3",
+        "released": "2017",
+        "genre": "action",
+        "platforms": "ps4",
+        "rating": "10"
     }
 ]
