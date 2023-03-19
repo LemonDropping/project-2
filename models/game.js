@@ -11,15 +11,11 @@ Game.init(
         primaryKey: true,
         autoIncrement: true
       },
-      title: {
+      name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      developers: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      isbn: {
+      released: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -31,8 +27,8 @@ Game.init(
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      publisher: {
-        type: DataTypes.BOOLEAN,
+      rating: {
+        type: DataTypes.INTEGER,
         allowNull: false,
       }
     },

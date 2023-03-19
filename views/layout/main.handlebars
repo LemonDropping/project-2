@@ -12,10 +12,15 @@
     <header class="head container">
         <h1 id="webTitle">Game Search Engine </h1>
         <nav>
-            <a href="./index.html">Home</a>
-            <a href="./public/htmls/Platforms.html">Platforms</a>
-            <a href="./public/htmls/NewGames.html">New Games</a>
-            <a href="./public/htmls/login.html">Login</a>
+          {{#if loggedIn}}
+            <a href="/">Home</a>
+            <a href="/platforms">Platforms</a>
+            <a href="/NewGames.html">New Games</a>
+            <a href="/login">Login</a>
+            {{else}}
+            <a href="/">Home</a>            
+            <a href="/login">Login</a>  
+            {{/if}}          
         </nav>
     </header>
 
@@ -24,9 +29,17 @@
         <input class="user-input-search" type="text" placeholder="Search a videogame here">
         <button class="search-button" type="button"><a href="./public/htmls/Search.html">Search</a></button>
     </section>
-
+<section id="bestGames">
     {{ body }}
-    
+</section>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<!-- jQuery UI <script> tag -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="module" src="../../public/js/main.js"></script>
+{{#if loggedIn}}
+<script src="../../public/js/logout.js"></script>
+{{/if}}
   </body>
 </html> 
 

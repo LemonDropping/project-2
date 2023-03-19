@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { Game, Comment } = require('../../models');
-const withAuth = require('../../utils/auth')
+const { Game, Comment } = require('../models');
+const withAuth = require('../utils/auth')
 
 
 // Home page
@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: Game,
-                    attributes: ['title', 'developers', 'genre', 'platforms', 'publishers'],
+                    attributes: ['id', 'name', 'released', 'genre', 'platforms', 'rating'],
                 },
             ],
         });
