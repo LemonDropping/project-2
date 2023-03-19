@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const { Game, Comment, Review } = require('../../models/game');
-const ifLoggedIn = require('../../utils/auth')
+const { Game, Comment, Review } = require('../../models/Game');
+const withAuth = require('../../utils/auth')
 
-router.get('/games/:id', ifLoggedIn, async (req, res) => {
+router.get('/games/:id', withAuth, async (req, res) => {
     try {
         const idGame = req.params.id;
+        console.log(idGame)
         const game = await Game.findByPk(idGame, {
             include: [Comment, Review]
         });
@@ -13,7 +14,6 @@ router.get('/games/:id', ifLoggedIn, async (req, res) => {
         if (!game) {
             return res.status(404).json ({ message: 'The game was not found' });
         }
-
         res.json(game);
     } catch (err) {
         console.error(err);

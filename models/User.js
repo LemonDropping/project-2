@@ -33,6 +33,9 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
             //must validate 
+            validate: {
+                len: [8]
+            }
         }
     },
     {

@@ -28,7 +28,7 @@ Comment.init (
             allowNull: false,
             references: {
                 model: 'game',
-                key: 'id',
+                key: 'id'
             },
         },
     },
@@ -38,7 +38,7 @@ Comment.init (
         timestamps: true,
         freezeTableName: true,
         underscored: true,
-        modelName: 'comment',
+        modelName: 'comment'
     }
 );
 

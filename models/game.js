@@ -5,28 +5,35 @@ class Game extends Model {}
 
 Game.init(
     {
-      game_id: {
+      id: {
         type: DataTypes.INTEGER,
+        allowNull: false,
         primaryKey: true,
         autoIncrement: true
       },
       title: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false,
       },
       developers: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false,
       },
       isbn: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false,
       },
       genre: {
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        allowNull: false,
       },
       platforms: {
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        allowNull: false,
       },
       publisher: {
-        type: DataTypes.BOOLEAN
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
       }
     },
     {
