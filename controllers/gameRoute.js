@@ -32,7 +32,7 @@ router.get('/games/:id', withAuth, async (req, res) => {
         const idGame = req.params.id;
         console.log(idGame)
         const game = await Game.findByPk(idGame, {
-            include: [Comment, Review]
+            include: [Comment]
         });
 
         if (!game) {

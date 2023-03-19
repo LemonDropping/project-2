@@ -3,7 +3,7 @@ const router = express.Router();
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 // getting all comments
-router.get('/',  async (req, res) => {
+router.get('/', (req, res) => {
     Comment.findAll({}).then(dbComment => res.json(dbComment))
     .catch(err => {
         res.status(500). json(err);
