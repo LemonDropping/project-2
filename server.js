@@ -6,7 +6,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers');
-const authRouteApi = require('./controllers/api/authRoute')
+const userRoute = require('./controllers/api/user-route')
 const indexController = require('./controllers/api/homeRoutes')
 
 
@@ -29,15 +29,11 @@ store: new SequelizeStore({
 }),
 };
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-});
-
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session(sess));
 
-app.use('/api/auth', authRouteApi);
+// app.use('/api/auth', userRoute);
 
 const hbs = exphbs.create({ helpers });
 app.engine('handlebars', hbs.engine);
@@ -45,7 +41,6 @@ app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname)));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
