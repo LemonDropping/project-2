@@ -1,29 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { User, Game } = require('../../models');
-const { route } = require('./gameRoute');
+const { User } = require('../../models');
 
-// Home page
-router.get('/', async (req, res) => {
-    try {
-        const dbGameData = await Game.findAll({
-            include: [
-                {
-                    model: Game,
-                    attributes: ['title', 'developers', 'genre', 'platforms', 'publishers'],
-                },
-            ],
-        });
-        const videoGames = dbGameData.map((game) => 
-            game.get({ plain: true })
-        );
-        res.render('homepage', {
-            videoGames
-        });
-    } catch(err) {
-        res.status(500).json(err)
-    }
-});
 // creating user
 router.post('./signup', async (req, res) => {
     try {
