@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Game, Comment, Review } = require('../../models/Game');
+const { Game, Comment } = require('../../models');
 const withAuth = require('../../utils/auth')
 
 router.get('/games/:id', withAuth, async (req, res) => {
