@@ -1,13 +1,12 @@
 const sequelize = require('../config/connection');
-const seedGame = require('../models/game');
-const dishData = require('./game-seeds.json');
+const {Game, Comment, User } = require('../models');
+const gameData = require('./seed');
 
-const seedAll = async () => {
+const seedDatabase = async () => {
     await sequelize.sync({ force: true });
 
-    await seedGame();
+    const games = await Game.bulkCreate(gameData);
 
-    process.exit(0);
-};
-
-seedAll();
+    for(var i = 0; i < 20; i++) {
+    }
+}
