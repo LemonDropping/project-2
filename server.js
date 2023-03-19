@@ -7,7 +7,6 @@ const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers');
 const userRoute = require('./controllers/api/user-route')
-const indexController = require('./controllers/api/homeRoutes')
 
 
 const app = express();
@@ -33,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session(sess));
 
-// app.use('/api/auth', userRoute);
+app.use('/api/users', userRoute);
 
 const hbs = exphbs.create({ helpers });
 app.engine('handlebars', hbs.engine);
