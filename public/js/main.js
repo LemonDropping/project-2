@@ -132,20 +132,6 @@ export const gameSearch = async () => {
 }
 
 
-
-    document.addEventListener('DOMContentLoaded', () => {
-    if(window.location.pathname.includes('index.html')) {
-        getGameInfo();
-    } else if(window.location.pathname.includes('Platforms.html')) {
-        getPlatforms(); 
-
-    } else if(window.location.pathname.includes('NewGames.html')) {
-        getGames();
-    } else if( window.location.pathname.includes('Search.html')) {
-        getUserGames();
-    }
-});
-
 searchBtn.addEventListener('submit', function(e) {
     e.preventDefault();
     gameSearch();

@@ -1,3 +1,4 @@
+{{#if loggedIn}}
     <main>
         <h2 id="secondTitle">Platforms</h2>
 
@@ -5,7 +6,6 @@
 
         </section>
     </main>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<!-- jQuery UI <script> tag -->
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script type="module" src="../public/js/main.js"></script>
+{{else}}
+<a href="/login">You must log in first!</a>
+{{/if}}

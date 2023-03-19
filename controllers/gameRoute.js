@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { Game, Comment } = require('../../models');
-const withAuth = require('../../utils/auth')
+const { Game, Comment } = require('../models');
+const withAuth = require('../utils/auth')
 
 
 // Home page
