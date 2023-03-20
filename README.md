@@ -10,9 +10,6 @@ As video game lovers, we were driven to build a website that allows users to sea
 4. After you write your review you can submit it with everyone elses.
 5. You can also comment on peoples existing reviews and leave comments.
 
-
-## Usage
-
 ## Credits
 - Eric Reyes
 - Cole Roberts
