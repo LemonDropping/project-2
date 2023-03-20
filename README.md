@@ -1,4 +1,4 @@
-# Fission Blog
+# Game Finder
 
 ## Description
 As video game lovers, we were driven to build a website that allows users to search their favorite games and review them. The video game search engine is a review website that allows a user to find a game, review it and comment on the game. The application also allows the user to sign up and login into the website so that they can have an account with the application giving them the ability to access the website and use it to its full potential. 
