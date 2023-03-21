@@ -24,4 +24,9 @@ loginForm.addEventListener('submit', function(event) {
     loginFormHandler(event);
 });
 
+const signupForm = document.querySelector('.signup-form');
+signupForm.addEventListener('submit', function(event) {
+    signupFormHandler(event);
+});
+
 //add eventlistener for signup
