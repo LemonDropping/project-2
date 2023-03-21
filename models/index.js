@@ -14,7 +14,9 @@ Game.hasMany(Comment, {
     foreignKey: 'game_id',
 });
 
-
+Comment.belongsTo(Game, {
+    foreignKey: 'game_id',
+});
 
 
 module.exports = {User, Comment, Game }

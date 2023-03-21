@@ -1,11 +1,16 @@
-{{#if loggedIn}}
+{{!-- {{#if loggedIn}}
     <main>
         <h2 id="secondTitle">Platforms</h2>
-
+{{#each games as |game|}}
         <section id="platformCard">
+            <div class="platformCard">
+                <h2 class="platformName">{{game.platforms}}</h2>
+            </div>
 
         </section>
     </main>
 {{else}}
 <a href="/login">You must log in first!</a>
 {{/if}}
+
+<script src="../public/js/platform.js"></script> --}}

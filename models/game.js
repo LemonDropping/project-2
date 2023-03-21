@@ -7,30 +7,13 @@ Game.init(
     {
       id: {
         type: DataTypes.INTEGER,
-        allowNull: true,
         primaryKey: true,
         autoIncrement: true
       },
       name: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
       },
-      released: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-      },
-      genre: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
-      platforms: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
-      rating: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-      }
     },
     {
       sequelize,
