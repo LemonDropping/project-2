@@ -71,7 +71,7 @@ nav a:hover {
     justify-content: end;
 }
 
-#bestGames {
+#bestGames, #newGames {
     display: flex;
     flex-wrap: wrap;
     justify-content:center;

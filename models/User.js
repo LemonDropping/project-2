@@ -15,7 +15,7 @@ User.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true,
         },
         email: {
             type: DataTypes.STRING,
@@ -25,27 +25,23 @@ User.init(
                 isEmail: true,
             },
         },
-        username: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
             //must validate 
             validate: {
-                len: [8]
-            }
-        }
+                len: [8],
+            },
+        },
     },
     {
         hooks: {
-            async beforeCreate(newUserData) {
+            beforeCreate: async (newUserData) => {
                 newUserData.password = await bcrypt.hash(newUserData.password, 10);
                 return newUserData;
             },
             // need to add hook for bcrypt here
-            async beforeUpdate(updatedUserData) {
+            beforeUpdate: async (updatedUserData) => {
                 updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
                 return updatedUserData;
             }
