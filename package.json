@@ -1,0 +1,31 @@
+{
+  "name": "project-2",
+  "version": "1.0.0",
+  "description": "## Descriptions",
+  "main": "vid-game-api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LemonDropping/project-2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LemonDropping/project-2/issues"
+  },
+  "homepage": "https://github.com/LemonDropping/project-2#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "connect-session-sequelize": "^7.1.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.1",
+    "express-session": "^1.17.3",
+    "mysql2": "^3.2.0",
+    "node-fetch": "^2.6.6",
+    "rawger": "^1.3.2",
+    "sequelize": "^6.29.1"
+  }
+}
