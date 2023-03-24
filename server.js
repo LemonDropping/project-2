@@ -30,6 +30,9 @@ store: new SequelizeStore({
 };
 
 app.use(express.static(path.join(__dirname, 'public')));
+console.log("Public folder path: ", path.join(__dirname, 'public'));
+
+
 
 app.use(session(sess));
 
@@ -37,7 +40,10 @@ app.use('/api/users', userRoute);
 ``
 const hbs = exphbs.create({ helpers });
 app.engine('handlebars', hbs.engine);
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'handlebars');
+app.set('layoutsDir', path.join(__dirname, 'views', 'layouts'));
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
