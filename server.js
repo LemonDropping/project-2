@@ -29,9 +29,14 @@ store: new SequelizeStore({
 };
 
 app.use(express.static(path.join(__dirname, 'public')));
-console.log("Public folder path: ", path.join(__dirname, 'public'));
 
-
+app.use('/public/css', express.static(__dirname + '/public/css', {
+    setHeaders: (res, path) => {
+      if (path.endsWith('.css')) {
+        res.setHeader('Content-Type', 'text/css');
+      }
+    }
+  }));
 
 app.use(session(sess));
 
