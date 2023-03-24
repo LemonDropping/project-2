@@ -13,6 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 
+
 const sess = {
     secret: "Keep this hidden",
     cookie: {
@@ -33,7 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session(sess));
 
 app.use('/api/users', userRoute);
-
+``
 const hbs = exphbs.create({ helpers });
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');

@@ -3,25 +3,24 @@ const router = express.Router();
 const { User } = require('../../models');
 
 
-
-// creating user
-router.post('/signup', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
-        const userData = await User.create({
-            email: req.body.email,
-            username: req.body.username,
-            password: req.body.password,
-        });
-       req.session.save(() => {
-        req.session.loggedIn = true;
-        res.status(200).json(userData);
-       }) 
-    } catch (error) {
-        console.log(error);
-        res.status(500).json ({ message: 'Could not complete registration'});
+        const dataUser = await User.create(req.body);
+
+        req.session.save(() => {
+
+            req.session.user_id = dataUser.id;
+            req.session.logged_in = false;
+
+            res.status(200).json(userData);
+
+        })
+    } catch (err) {
+        res.status(500).json(err);
     }
 });
-// logging the user in
+
+
 router.post('/login', async (req, res) => {
     try {
         const userData = await User.findOne({
@@ -49,7 +48,7 @@ router.post('/login', async (req, res) => {
     }
 });
 
-// logging the user out
+
 router.post('/logout', (req, res) => {
     if(req.session.loggedIn) {
         req.session.destroy(() => {
@@ -58,6 +57,39 @@ router.post('/logout', (req, res) => {
     } else {
         res.status(404).end();
     }
-})
+});
+
+router.post('/signup', async (req, res) => {
+    try {
+      const userData = await User.create({
+        email: req.body.email,
+        password: req.body.password,
+      });
+  
+      req.session.save(() => {
+        req.session.user_id = userData.id;
+        req.session.logged_in = true;
+        res.status(200).json(userData);
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
 module.exports = router;
+// router.post('/', async (req, res) => {
+//     try {
+//         const userData = await User.create({
+//             email: req.body.email,
+//             username: req.body.username,
+//             password: req.body.password,
+//         });
+//        req.session.save(() => {
+//         req.session.loggedIn = true;
+//         res.status(200).json(userData);
+//        }) 
+//     } catch (error) {
+//         console.log(error);
+//         res.status(500).json ({ message: 'Could not complete registration'});
+//     }
+// });
