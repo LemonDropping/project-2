@@ -8,7 +8,6 @@ const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers');
 const userRoute = require('./controllers/api/user-route')
 
-
 const app = express();
 const PORT = process.env.PORT || 3001;
 

@@ -5,7 +5,7 @@ const router = express.Router();
 router.use(express.static('public'));
 
 router.get('/', (req, res) => {
-    res.render('home');
+    res.render('homepage');
 });
 
 router.get('/signup', (req, res) => {
@@ -23,7 +23,7 @@ router.get('/game', withAuth, (req, res) => {
 });
 
 router.get('/comment', withAuth, (req, res) => {
-    res.render('game', {
+    res.render('comment', {
         logged_in: req.session.logged_in,
     });
 });

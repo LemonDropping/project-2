@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { Game, Comment } = require('../../models');
-const withAuth = require('../../utils/auth')
+const { Game, Comment } = require('../models');
+const withAuth = require('../utils/auth')
 
 
 // Home page
@@ -10,8 +10,8 @@ router.get('/', async (req, res) => {
         const dbGameData = await Game.findAll({
             include: [
                 {
-                    model: Game,
-                    attributes: ['title', 'developers', 'genre', 'platforms', 'publishers'],
+                    model: Comment,
+                    attributes: ['id', 'content', 'user_id', 'game_id'],
                 },
             ],
         });
@@ -27,12 +27,12 @@ router.get('/', async (req, res) => {
 });
 
 // Get one game
-router.get('/games/:id', withAuth, async (req, res) => {
+router.get('/game/:id', withAuth, async (req, res) => {
     try {
         const idGame = req.params.id;
         console.log(idGame)
         const game = await Game.findByPk(idGame, {
-            include: [Comment, Review]
+            include: [Comment]
         });
 
         if (!game) {

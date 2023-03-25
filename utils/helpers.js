@@ -2,16 +2,18 @@ let dateObj = new Date();
 let year = dateObj.getUTCFullYear();
 const apiKey = "550b3b41e70a440abdf5cad43e2270b1";
 var userInput = "";
+const express = require('express');
+const router = express.Router();
 
-async function getGameInfo() {
-    try {
-        const response = await fetch(`https://api.rawg.io/api/games?key=${apiKey}`);
-        const resParse = await response.json();
-        return resParse;
-    } catch (err) {
-        throw(err);
-    };
-};
+// async function getGameInfo() {
+//     try {
+//         const response = await fetch(`https://api.rawg.io/api/games?key=${apiKey}`);
+//         const resParse = await response.json();
+//         return resParse;
+//     } catch (err) {
+//         throw(err);
+//     };
+// };
 
 async function getGames() {
     try {
@@ -34,15 +36,14 @@ async function getPlatforms() {
     };
 };
 
-async function getUserGames() {
-    try {
-        userInput = $('.user-input-search').val();
-        const response = await fetch(`https://api.rawg.io/api/games?search=${userInput}&key=${apiKey}`);
-        const resParse = await response.json();
-        return resParse;
-    } catch (err) {
-        throw (err);
-    };
-};
+// async function getUserGames() {
+//     try {
+//         userInput = $('.user-input-search').val();
+//         const response = await fetch(`https://api.rawg.io/api/games?search=${userInput}&key=${apiKey}`);
+//         const resParse = await response.json();
+//         return resParse;
+//     } catch (err) {
+//         throw (err);
+//     };
+// };
 
-module.exports = {getGameInfo, getGames, getPlatforms, getUserGames};
