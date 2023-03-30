@@ -1,7 +1,32 @@
-const showingGames = document.getElementById('bestGames');
 const searchBtn = document.querySelector('.search-button');
+const apiKey = "550b3b41e70a440abdf5cad43e2270b1";
+const showingGames = document.getElementById('bestGames');
+const userInput = document.querySelector('.user-input-search');
 
-function topNewGame(response) {
+const getUserGames = async () => {
+    try {
+        const response = await fetch(`https://api.rawg.io/api/games?search=${userInput}&key=${apiKey}`);
+        const resParse = await response.json();
+        gameSearch(resParse);
+        return resParse;
+    } catch (err) {
+        throw (err);
+    };
+};
+
+const getGameInfo= async () => {
+    try {
+        const response = await fetch(`https://api.rawg.io/api/games?key=${apiKey}`);
+        const resParse = await response.json();
+        topNewGame(resParse)
+        return resParse;
+    } catch (err) {
+        throw(err);
+    };
+};
+
+
+const topNewGame = (response) => {
     for (let i = 0; i < response.results.length; i++) {
         // Creating the game's card
         const gameCard = document.createElement('div');
@@ -67,7 +92,7 @@ const gameSearch = async () => {
 
     const searchGame = await getUserGames();
     showingGames.innerHTML = "";
-        searchGame.results.map((game) => {
+        searchGame.results.forEach((game) => {
             // Creating the game's card
             const gameCard = document.createElement('div');
             gameCard.classList.add('gameCard');
@@ -129,13 +154,44 @@ const gameSearch = async () => {
   ); 
 }
 
+getGameInfo();
 
-searchBtn.addEventListener('submit', function(e) {
-    e.preventDefault();
-    gameSearch();
+
+searchBtn.addEventListener('click', async (e) => {
+    e.preventDefault(); 
+
+    const data = await getUserGames().value;
+    console.log(data);
+    gameSearch(data);
 });
 
-module.exports = {gameSearch, topNewGame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

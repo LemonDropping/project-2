@@ -8,9 +8,9 @@ const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers');
 const userRoute = require('./controllers/api/user-route')
 
-
 const app = express();
 const PORT = process.env.PORT || 3001;
+
 
 
 const sess = {
@@ -29,15 +29,18 @@ store: new SequelizeStore({
 };
 
 app.use(express.static(path.join(__dirname, 'public')));
+console.log("Public folder path: ", path.join(__dirname, 'public'));
+
+
 
 app.use(session(sess));
 
-// app.use('/api/users', userRoute);
+app.use('/api/users', userRoute);
 
 const hbs = exphbs.create({ helpers });
 app.engine('handlebars', hbs.engine);
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'handlebars');
-app.set('views', './views');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
